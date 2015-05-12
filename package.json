@@ -31,13 +31,19 @@
     "express-session": "^1.10.1",
     "glob": "~4.3.1",
     "gulp": "^3.8.11",
+    "gulp-bower-files": "^0.2.7",
     "gulp-cli": "^0.2.0",
+    "gulp-concat": "^2.5.2",
     "gulp-livereload": "^3.8.0",
     "gulp-nodemon": "^2.0.3",
     "lodash": "^3.3.1",
+    "main-bower-files": "^2.7.1",
     "method-override": "~2.3.0",
     "mongoose": "~3.8.20",
     "mongoose-random": "^0.1.1",
     "mongoose-unique-validator": "^0.4.1"
+  },
+  "devDependencies": {
+    "gulp-server-livereload": "^1.3.0"
   }
 }
