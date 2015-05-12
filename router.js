@@ -1,20 +1,37 @@
+
 // Need routes for REST resource
-module.exports = function (app) {
+module.exports = function (app, mongoose) {
+  var todoSchema = new mongoose.Schema({
+    name:  String,
+    done: Boolean
+  });
+
+  mongoose.model('Todo', todoSchema);
+
+  var Todo = mongoose.model('Todo');
+
+
   app.route('/todos')
     .get(function (req, res) {
-      res.send([
-        {
-          name: 'todo1',
-          done: false
-        },
-        {
-          name: 'todo2',
-          done: true
-        },
-        {
-          name: 'todo3',
-          done: false
+      Todo.find({}, function(err, todos){
+        res.send(todos);
+      });
+    })
+
+    .post(function (req, res) {
+      var todo = new Todo({
+        name: req.body.name,
+        done: false
+      });
+
+      todo.save(function (err, user) {
+        if (err) {
+          return next(err);
         }
-      ]);
+
+        res.send(user.info);
+      });
+
+      res.send('create todo');
     });
 };
