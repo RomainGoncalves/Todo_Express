@@ -2,7 +2,7 @@
   "name": "todo_express",
   "version": "1.0.0",
   "description": "A todo app using Express & Angularjs",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "test"
   },
@@ -19,5 +19,25 @@
   "bugs": {
     "url": "https://github.com/RomainGoncalves/Todo_Express/issues"
   },
-  "homepage": "https://github.com/RomainGoncalves/Todo_Express#readme"
+  "homepage": "https://github.com/RomainGoncalves/Todo_Express#readme",
+  "dependencies": {
+    "body-parser": "~1.10.0",
+    "compression": "~1.3.0",
+    "connect": "^3.3.4",
+    "connect-mongo": "^0.6.0",
+    "cookie-parser": "~1.3.3",
+    "express": "^4.12.3",
+    "express-cors": "0.0.3",
+    "express-session": "^1.10.1",
+    "glob": "~4.3.1",
+    "gulp": "^3.8.11",
+    "gulp-cli": "^0.2.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-nodemon": "^2.0.3",
+    "lodash": "^3.3.1",
+    "method-override": "~2.3.0",
+    "mongoose": "~3.8.20",
+    "mongoose-random": "^0.1.1",
+    "mongoose-unique-validator": "^0.4.1"
+  }
 }
