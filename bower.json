@@ -1,0 +1,25 @@
+{
+  "name": "Todo_Express",
+  "version": "0.0.1",
+  "homepage": "https://github.com/RomainGoncalves/Todo_Express",
+  "authors": [
+    "RomainGoncalves <goncalves.romain@gmail.com>"
+  ],
+  "description": "A Todo app with Express and Angular",
+  "keywords": [
+    "todo",
+    "angularjs",
+    "Express"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15"
+  }
+}

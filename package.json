@@ -1,0 +1,23 @@
+{
+  "name": "todo_express",
+  "version": "1.0.0",
+  "description": "A todo app using Express & Angularjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomainGoncalves/Todo_Express.git"
+  },
+  "keywords": [
+    "Express",
+    "angualrjs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RomainGoncalves/Todo_Express/issues"
+  },
+  "homepage": "https://github.com/RomainGoncalves/Todo_Express#readme"
+}
