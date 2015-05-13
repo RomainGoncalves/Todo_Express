@@ -30,14 +30,25 @@ module.exports = function (app, mongoose) {
 
         res.send(newTodo);
       });
-    })
+    });
 
+  app.route('/todos/:id')
+    
     .put(function (req, res) {
-      Todo.findOneAndUpdate({_id: req.body._id}, req.body, function (err, updatedTodo) {
+      Todo.findOneAndUpdate({_id: req.params.id}, req.body, function (err, updatedTodo) {
         if(err){
           console.log( "Error: ", err );
         }
         res.send(updatedTodo);
       });
+    })
+
+    .delete(function(req, res){
+      Todo.findOneAndRemove({_id: req.params.id},function(err, stuf){
+        if(err){
+          console.log( "Error: ", err );
+        }
+        res.send("Item deleted");
+      })
     });
 };

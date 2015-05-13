@@ -12,10 +12,14 @@ angular.module('todos')
       });
     };
 
-    this.changeState = function(index){
-      console.log( this.todos[index] );
+    this.updateTask = function(index){
       Todos.update(this.todos[index]).$promise.then(function(updatedTodo){
-        console.log( "Updated Todo: ", updatedTodo );
+      });
+    };
+
+    this.removeTask = function(index){
+      this.todos[index].$delete().then(function(){
+        self.todos.splice(index, 1);
       })
     };
   }]);

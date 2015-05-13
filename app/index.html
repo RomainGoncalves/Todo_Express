@@ -22,10 +22,12 @@
       <li ng-repeat="todo in todoCtrl.todos">
         <input type="checkbox"
                id="todo{{ todo._id }}"
-               ng-change="todoCtrl.changeState($index)"
+               ng-change="todoCtrl.updateTask($index)"
                ng-model="todo.done"/>
         <label for="todo{{ todo._id }}"
                ng-class="{active: todo.done}">{{ todo.name }}</label>
+
+        <button ng-click="todoCtrl.removeTask($index)">&#10006;</button>
       </li>
     </ul>
   </form>
