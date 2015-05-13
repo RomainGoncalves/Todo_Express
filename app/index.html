@@ -1,25 +1,35 @@
 <!doctype html>
 <html lang="en" ng-app="todos">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles/main.css"/>
-    <title>Todo with Express and Angular</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/main.css"/>
+  <title>Todo with Express and Angular</title>
 </head>
 <body>
 <h1>Todo with Express and Angular</h1>
 
-<div ng-controller="TodoCtrl as todo">
+<div ng-controller="TodoCtrl as todoCtrl">
+
+  <form ng-submit="todoCtrl.addTodo()" novalidate>
+    <label for="task">
+      <input type="text" id="task" name="task" ng-model="todoCtrl.newTodo.name"/>
+    </label>
+    <button type="submit">Add</button>
+  </form>
+
+
+  <form>
     <ul>
-        <li ng-repeat="todo in todo.todos" ng-class="{active: todo.done}">
-            {{ todo.name }}
-        </li>
+      <li ng-repeat="todo in todoCtrl.todos">
+        <input type="checkbox"
+               id="todo{{ todo._id }}"
+               ng-change="todoCtrl.changeState($index)"
+               ng-model="todo.done" />
+        <label for="todo{{ todo._id }}"
+               ng-class="{active: todo.done}">{{ todo.name }}</label>
+      </li>
     </ul>
-
-    <form ng-submit="todo.addTodo()" novalidate>
-        <input type="text" ng-model="todo.newTodo.name" />
-        <button type="submit">Add</button>
-    </form>
-
+  </form>
 </div>
 
 </body>
