@@ -22,13 +22,22 @@ module.exports = function (app, mongoose) {
         done: false
       });
 
-      todo.save(function (err, user) {
+      todo.save(function (err, newTodo) {
         if (err) {
           console.log(err);
           return next(err);
         }
 
-        res.send(todo);
+        res.send(newTodo);
+      });
+    })
+
+    .put(function (req, res) {
+      Todo.findOneAndUpdate({_id: req.body._id}, req.body, function (err, updatedTodo) {
+        if(err){
+          console.log( "Error: ", err );
+        }
+        res.send(updatedTodo);
       });
     });
 };

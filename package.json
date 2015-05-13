@@ -44,6 +44,7 @@
     "mongoose-unique-validator": "^0.4.1"
   },
   "devDependencies": {
-    "gulp-server-livereload": "^1.3.0"
+    "gulp-server-livereload": "^1.3.0",
+    "morgan": "^1.5.3"
   }
 }

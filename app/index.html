@@ -17,14 +17,13 @@
     <button type="submit">Add</button>
   </form>
 
-
   <form>
     <ul>
       <li ng-repeat="todo in todoCtrl.todos">
         <input type="checkbox"
                id="todo{{ todo._id }}"
                ng-change="todoCtrl.changeState($index)"
-               ng-model="todo.done" />
+               ng-model="todo.done"/>
         <label for="todo{{ todo._id }}"
                ng-class="{active: todo.done}">{{ todo.name }}</label>
       </li>
