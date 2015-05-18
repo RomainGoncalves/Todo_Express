@@ -27,9 +27,29 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('bower', function(){
-  gulp.src(mainBowerFiles())
+
+  // Separating CSS/JS
+  var files = mainBowerFiles();
+  var css = [];
+  var js = [];
+
+  files.forEach(function(file){
+    var split = file.split('.');
+    var extPosition = split.length - 1;
+    if( split[extPosition] == 'js' ) js.push(file);
+    if( split[extPosition] == 'css' ) css.push(file);
+  });
+
+  console.log( css );
+  console.log( js );
+
+  gulp.src(js)
     .pipe(concat('vendors.js'))
     .pipe(gulp.dest('app/scripts/'));
+
+  gulp.src(css)
+    .pipe(concat('vendors.css'))
+    .pipe(gulp.dest('app/styles/'));
 });
 
 gulp.task("default", [

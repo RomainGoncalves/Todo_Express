@@ -33,7 +33,7 @@ module.exports = function (app, mongoose) {
     });
 
   app.route('/todos/:id')
-    
+
     .put(function (req, res) {
       Todo.findOneAndUpdate({_id: req.params.id}, req.body, function (err, updatedTodo) {
         if(err){

@@ -1,7 +1,69 @@
-li{
-  list-style-type: none;
+.main{
+  max-width: 70%;
+  margin: auto;
 }
 
-.active{
+li {
+  list-style-type: none;
+  display: block;
+  min-width: 200px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  min-height: 30px;
+}
+
+li.ng-enter{
+  -webkit-animation: 0.5 bounce ease;
+  -moz-animation: 0.5 bounce ease;
+  -o-animation: 0.5 bounce ease;
+  animation: 0.5 bounce ease;
+}
+
+li label{
+  cursor: pointer;
+}
+
+form.listTodos{
+  float: left;
+}
+
+.even {
+  background-color: #bbbbbb;
+}
+
+.active {
   text-decoration: line-through;
+  color: #880000;
+}
+
+#createTodo{
+  float: left;
+}
+
+#task{
+  padding: 10px;
+  font-size: 1.5em;
+}
+
+.remove {
+  float: right;
+  margin-top: 5px;
+}
+
+table {
+  text-align: center;
+  float: right;
+}
+
+.error{
+  border: 1px solid darkred;
+  font-size: 18px;
+  font-weight: bold;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  background-color: indianred;
+  margin: auto;
 }

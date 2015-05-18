@@ -2,24 +2,40 @@
 <html lang="en" ng-app="todos">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/vendors.css"/>
   <link rel="stylesheet" href="styles/main.css"/>
   <title>Todo with Express and Angular</title>
 </head>
 <body>
 <h1>Todo with Express and Angular</h1>
 
-<div ng-controller="TodoCtrl as todoCtrl">
+<div ng-controller="TodoCtrl as todoCtrl" class="main">
 
-  <form ng-submit="todoCtrl.addTodo()" novalidate>
+  <div class="error" ng-if="todoCtrl.flashMessage.show">{{ todoCtrl.flashMessage.message }}</div>
+
+  <table>
+    <tr>
+      <td>Done</td>
+      <td>Todo</td>
+      <td>Total</td>
+    </tr>
+    <tr>
+      <td>{{ todoCtrl.countDoneStatus(true) }}</td>
+      <td>{{ todoCtrl.countDoneStatus(false) }}</td>
+      <td>{{ todoCtrl.todos.length }}</td>
+    </tr>
+  </table>
+
+  <form name="createTodo" id="createTodo" ng-submit="todoCtrl.addTodo(createTodo.$valid)" novalidate>
     <label for="task">
-      <input type="text" id="task" name="task" ng-model="todoCtrl.newTodo.name"/>
+      <input type="text" id="task" name="task" ng-model="todoCtrl.newTodo.name" required />
     </label>
     <button type="submit">Add</button>
   </form>
 
-  <form>
+  <form class="listTodos">
     <ul>
-      <li ng-repeat="todo in todoCtrl.todos">
+      <li ng-repeat="todo in todoCtrl.todos" ng-class="{even: $index % 2 === 0}" class="animated">
         <input type="checkbox"
                id="todo{{ todo._id }}"
                ng-change="todoCtrl.updateTask($index)"
@@ -27,7 +43,7 @@
         <label for="todo{{ todo._id }}"
                ng-class="{active: todo.done}">{{ todo.name }}</label>
 
-        <button ng-click="todoCtrl.removeTask($index)">&#10006;</button>
+        <button class="remove" ng-click="todoCtrl.removeTask($index)">&#10006;</button>
       </li>
     </ul>
   </form>
